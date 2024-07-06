@@ -26,6 +26,9 @@ export class GameComponent implements OnInit {
   }
 
   guessLetter(letter: string): void {
+    if(this.gameEnd()){
+      return;
+    }
     if (this.selectedWord.includes(letter)) {
       for (let i = 0; i < this.selectedWord.length; i++) {
         if (this.selectedWord[i] === letter) {
@@ -42,7 +45,7 @@ export class GameComponent implements OnInit {
   }
 
   isLetterGuessed(letter: string): boolean {
-    return this.hiddenWord.includes(letter) || this.incorrectLetters.includes(letter);
+    return (this.hiddenWord.includes(letter) || this.incorrectLetters.includes(letter));
   }
 
   resetGame(): void {
@@ -66,7 +69,9 @@ export class GameComponent implements OnInit {
       this.showModalMessage('Perdiste. La palabra era ' + this.selectedWord);
     }
   }
-
+  gameEnd(): boolean {
+    return this.remainingAttempts === 0;
+  }
   showModalMessage(message: string): void {
     this.modalMessage = message;
     this.showModal = true;
@@ -81,8 +86,9 @@ export class GameComponent implements OnInit {
   @HostListener('window:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     const letter = event.key.toUpperCase();
-    if (this.alphabet.includes(letter)) {
+    if (!this.gameEnd() && this.alphabet.includes(letter) && !this.hiddenWord.includes(letter)) {
       this.guessLetter(letter);
     }
   }
+  
 }
