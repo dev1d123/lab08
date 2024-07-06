@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
 
 .container {
     text-align: center;
@@ -48,25 +49,44 @@
     transform: scale(1.1);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
   }
-  
+  .keycontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 700px;
+    margin: 0 auto; 
+  }
+  .letters{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin: auto;
+    max-width: 100%;
+    justify-content: center;
+
+  }
   .letters button {
-    margin: 5px;
-    padding: 10px 15px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    background-color: #f0f0f0;
-    color: #333;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: "Baskervville SC", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1rem;
+    background-color: beige;
+    color: #4A4A4A;
+    border: 1px black solid;
+    box-shadow: 5px 5px #4A4A4A;
+    border-radius: 1rem;
+    min-width: 50px;
+    max-width: 50px;
+    min-height: 50px;
+    max-height: 50px;
+    cursor: pointer; 
+    transition: transform 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   }
   
   .letters button:hover {
-    background-color: #007bff;
-    color: #fff;
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: #4A4A4A;
+    color: beige;
+    transform: scale(1.2); 
   }
   
   .letters button:disabled {
@@ -182,6 +202,7 @@
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
   }
   
   .btn:hover {
@@ -206,3 +227,61 @@
     }
   }
   
+  .btn-exit {
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-exit:hover {
+    background-color: #ff1a1a;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.btn-exit:active {
+    background-color: #e60000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+}
+
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-exit {
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 76, 76, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(255, 76, 76, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 76, 76, 0);
+    }
+}
+
+.btn-exit {
+    animation: pulse 1.5s infinite;
+}

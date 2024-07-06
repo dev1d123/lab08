@@ -6,17 +6,24 @@
         <span *ngFor="let char of hiddenWord">{{ char }}</span>
       </div>
     </div>
-    
+
+    <button class="btn-exit"  (click)="navigateHome()">
+      Regresar al inicio
+    </button>
     <div class="game-body">
       <img [src]="hangmanImage" alt="Hangman" class="hangman-image">
       <p>Intentos restantes: {{ remainingAttempts }}</p>
       <p>Letras incorrectas: {{ incorrectLetters.join(', ') }}</p>
-      
-      <div class="letters">
-        <button *ngFor="let letter of alphabet" (click)="guessLetter(letter)" [disabled]="isLetterGuessed(letter)">
-          {{ letter }}
-        </button>
+      <div class="keycontainer">
+        <div class="letters">
+          <button class="letter btn" *ngFor="let letter of alphabet" (click)="guessLetter(letter)" [disabled]="isLetterGuessed(letter)">
+              <div class="tecla caracter">
+                  {{ letter }}
+              </div>
+          </button>
+        </div>
       </div>
+
     </div>
     
     <div class="game-footer">

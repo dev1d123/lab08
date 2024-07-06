@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit {
-  alphabet: string[] = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ'.split('');
+  alphabet: string[] = 'QWERTYUIOPASDFGHJKLÑZXCVBNM'.split('');
   words: string[] = ['ANGULAR', 'COMPONENTE', 'SERVICIO', 'DIRECTIVA', 'MODULO'];
   hiddenWord: string[] = [];
   incorrectLetters: string[] = [];
@@ -18,6 +19,7 @@ export class GameComponent implements OnInit {
   modalMessage: string = '';
 
   private selectedWord: string = '';
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
     this.resetGame();
@@ -71,5 +73,8 @@ export class GameComponent implements OnInit {
     setTimeout(() => {
       this.showModal = false;
     }, 3000);
+  }
+  navigateHome(){
+    this.router.navigate(['/']);
   }
 }
