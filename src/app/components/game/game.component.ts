@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -76,5 +76,13 @@ export class GameComponent implements OnInit {
   }
   navigateHome(){
     this.router.navigate(['/']);
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    const letter = event.key.toUpperCase();
+    if (this.alphabet.includes(letter)) {
+      this.guessLetter(letter);
+    }
   }
 }
