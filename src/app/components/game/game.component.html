@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="game-header">
+      <h1>Juego del Ahorcado</h1>
+      <p>Encuentra la palabra:</p>
+      <div class="word">
+        <span *ngFor="let char of hiddenWord">{{ char }}</span>
+      </div>
+    </div>
+    
+    <div class="game-body">
+      <img [src]="hangmanImage" alt="Hangman" class="hangman-image">
+      <p>Intentos restantes: {{ remainingAttempts }}</p>
+      <p>Letras incorrectas: {{ incorrectLetters.join(', ') }}</p>
+      
+      <div class="letters">
+        <button *ngFor="let letter of alphabet" (click)="guessLetter(letter)" [disabled]="isLetterGuessed(letter)">
+          {{ letter }}
+        </button>
+      </div>
+    </div>
+    
+    <div class="game-footer">
+      <p class="win-counter">Ganaste: {{ wins }}</p>
+      <p class="lose-counter">Perdiste: {{ losses }}</p>
+      <button (click)="resetGame()" class="btn btn-primary">Jugar de nuevo</button>
+    </div>
+    
+    <div class="modal" [ngClass]="{'show': showModal}" role="dialog" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">{{ modalMessage }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,208 @@
+
+.container {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .word {
+    font-size: 32px;
+    margin-bottom: 40px;
+    letter-spacing: 10px;
+    font-weight: bold;
+    color: #4a4a4a;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: inline-block;
+  }
+  
+  .hangman-image {
+    width: 200px;
+    height: 500px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .hangman-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .letters button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .letters button:hover {
+    background-color: #007bff;
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .letters button:disabled {
+    background-color: #ccc;
+    color: #999;
+    cursor: not-allowed;
+    transform: scale(1);
+    box-shadow: none;
+  }
+  
+  .game-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .win-counter {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: green;
+    font-weight: bold;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .lose-counter {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeInModal 0.5s ease forwards;
+  }
+  
+  .modal.show {
+    display: flex;
+  }
+  
+  @keyframes fadeInModal {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .modal-dialog {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideInModal 0.5s ease forwards, swing 2s infinite;
+  }
+  
+  @keyframes slideInModal {
+    from {
+      transform: translateY(-50%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes swing {
+    20% {
+      transform: rotate(15deg);
+    }
+    40% {
+      transform: rotate(-10deg);
+    }
+    60% {
+      transform: rotate(5deg);
+    }
+    80% {
+      transform: rotate(-5deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: 600px) {
+    .letters button {
+      font-size: 16px;
+      padding: 8px 12px;
+    }
+  
+    .word {
+      font-size: 24px;
+    }
+  
+    .btn {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
